@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RSA message signing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>RSA message signing</h1>
+    
+    <label>Key size: <input id="key-size" value="2048"> <button id="generate-keys">Generate keys</button></label>
+    
+    <label>n: <textarea id="n-value" readonly></textarea></label>
+    <label>e: <textarea id="e-value" readonly></textarea></label>
+    <label>d: <textarea id="d-value" readonly></textarea></label>
+    
+    <h2>Sign message</h2>
+    
+    <label>Message: <textarea id="message"></textarea></label>
+    
+    <button id="sign-message">Sign message</button>
+    
+    <label>Message as BigInt: <textarea id="message-bigint" readonly></textarea></label>
+    <label>Message digest (SHA-256) as BigInt: <textarea id="message-sha256-bigint" readonly></textarea></label>
+    <label>Plain RSA signature: <textarea id="plain-rsa-signature" readonly></textarea></label>
+    <label>SHA-256 RSA signature: <textarea id="sha256-rsa-signature" readonly></textarea></label>
+    
+    <h2>Verify signature</h2>
+    
+    <label>Message: <textarea id="message-to-verify"></textarea></label>
+    
+    <label>RSA signature: <textarea id="rsa-signature-to-verify"></textarea></label>
+    
+    <button id="verify-rsa-signature">Verify plain signature</button>
+    <button id="verify-sha256-signature">Verify SHA-256 signature</button>
+    
+    <label>Decrypted message as BigInt:<textarea id="decrypted-message-bigint" readonly></textarea></label>
+    <label>Decrypted message:<textarea id="decrypted-message" readonly></textarea></label>
+    
+    <h2>Forged message/signature attack</h2>
+    
+    <pre>
+        message   = m<sub>1</sub> * m<sub>2</sub>
+        signature = s<sub>1*</sub> * s<sub>2</sub>
+    </pre>
+    
+    <label>Message 1 as BigInt:<textarea id="forged-message-1"></textarea></label>
+    <label>Message 2 as BigInt:<textarea id="forged-message-2"></textarea></label>
+    <label>Signature 1:<textarea id="forged-signature-1"></textarea></label>
+    <label>Signature 2:<textarea id="forged-signature-2"></textarea></label>
+    
+    <button id="verify-forged">Verify forged message/signature</button>
+    
+    <!-- <script src="https://rawcdn.githack.com/juanelas/bigint-crypto-utils/ef5d73a0e4d01dfd2fee2ac13b54d0a6f0fb9616/dist/bigint-crypto-utils-latest.browser.min.js"></script> -->
+    <script type="module" src="bigintCryptoUtils.js"></script>
+    <script type="module" src="lib.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
