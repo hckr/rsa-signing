@@ -1,5 +1,3 @@
-import * as bigintCryptoUtils from './bigintCryptoUtils.js';
-
 export async function generateRsaKeys(keySize) {
     const e = BigInt(65537);
     let p, q;
